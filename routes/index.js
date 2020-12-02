@@ -1,11 +1,15 @@
 const express = require('express');
 const router  = express.Router();
-const exercises = require("../data/exercises.json")
+const {
+  getAllExercises
+} = require('../controllers/exercises')
+const {
+  getAllWorkouts
+} = require('../controllers/workouts')
 
 /* GET home page */
-router.get("/getExercises", (req, res, next) => {
-  console.log("ex ", exercises)
-  res.json(exercises)
-})
+router.get('/exercises', getAllExercises)
+
+router.get('/workouts', getAllWorkouts)
 
 module.exports = router;
